@@ -16,7 +16,7 @@ jobs:
                 cache: 'npm'
                 cache-dependency-path: /Users/ishan/Documents/DevOps_TWS/Github-Actions/IshanBoard/frontend/package.json
             - name: install packages
-              run: npm install
+              run: npm --prefix /Users/ishan/Documents/DevOps_TWS/Github-Actions/IshanBoard/frontend/package.json install
 
             - name: Run Linter
               run: npm run lint
