@@ -56,7 +56,7 @@ jobs:
               working-directory: backend
             
             - name: Run go vat
-              run: got vet 
+              run: go vet 
               working-directory: backend
                         
             - name: test
