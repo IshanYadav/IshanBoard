@@ -1,7 +1,7 @@
 name: CI
 on:
     push: 
-        branches: [advanced]
+        branches: [main]
 jobs:
     code-lint:
         runs-on: ubuntu-latest
