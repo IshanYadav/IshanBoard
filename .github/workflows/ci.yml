@@ -38,4 +38,40 @@ jobs:
                 push: true
                 tags: ${{ vars.DOCKERHUB_USERNAME }}/devboard-frontend:latest
 
-              
+    backeend:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v6
+            
+            - name: Setup go
+              uses: actions/setup-go@v6
+              with: 
+                go-version: '1.23'
+                go-version-file: 'go.mod'
+                check-latest: false
+                cache-dependency-path: go.sum
+            - name: Run go fmt
+              run: go fmt
+              working-directory: backend
+            
+            - name: Run go vat
+              run: got vet 
+              working-directory: backend
+                        
+            - name: test
+              run: go test
+              working-directory: backend
+            - name: Docker  login
+              uses: docker/login-action@v4
+              with:
+                username: ${{ vars.DOCKERHUB_USERNAME }}
+                password: ${{ secrets.DOCKERHUB_TOKEN }}
+            - name: Docker push  image
+              uses: docker/build-push-action@v7
+              with: 
+                context: ./backend/
+                push: true
+                tags: ${{ vars.DOCKERHUB_USERNAME }}/devboard-frontend:latest
+            
+                
