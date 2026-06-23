@@ -34,7 +34,7 @@ jobs:
             - name: Docker push  image
               uses: docker/build-push-action@v7
               with: 
-                context: ../frontend/
+                context: ./frontend/
                 push: true
                 tags: ${{ vars.DOCKERHUB_USERNAME }}/devboard-frontend:latest
 
