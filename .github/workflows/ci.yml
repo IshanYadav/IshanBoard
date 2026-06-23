@@ -13,7 +13,7 @@ jobs:
               uses: actions/setup-node@v4
               with: 
                 node-version: '20.x'
-                cache: npm
+                cache: 'npm'
                 cache-dependency-path: /Users/ishan/Documents/DevOps_TWS/Github-Actions/IshanBoard/frontend/package.json
             - name: install packages
               run: npm install
