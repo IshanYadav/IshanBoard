@@ -67,7 +67,7 @@ jobs:
               with:
                 username: ${{ vars.DOCKERHUB_USERNAME }}
                 password: ${{ secrets.DOCKERHUB_TOKEN }}
-            - name: Docker push  image
+            - name: Docker push   image
               uses: docker/build-push-action@v7
               with: 
                 context: ./backend/
